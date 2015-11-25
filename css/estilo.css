@@ -1,0 +1,234 @@
+    body {
+        padding-top: 150px;
+		background:#FAFAFA;		
+    }
+	
+	#cabeceraT{
+		background-color:#EAEAEA;
+		border-color:#B9B9B9;
+	}
+	
+	p{
+		margin: 0px 0px 0px;
+		margin-top: 0px;
+		margin-right: 0px;
+		margin-bottom: -5px;
+		margin-left: 0px;
+	}
+	
+	.btn{
+		border-color: #B9B9B9;
+	}
+	
+	.btn-imp{
+		background-color:#838C99;
+		color:white;
+	}
+	
+	.btn-imp:hover{
+	background-color: #000000;
+	color: white;
+	-webkit-transition: background-color 400ms linear;
+	-moz-transition: background-color 400ms linear;
+	-o-transition: background-color 400ms linear;
+	-ms-transition: background-color 400ms linear;
+	transition: background-color 400ms linear;
+	}
+	
+	.form-control{
+		border: 1px solid #B9B9B9;
+	}
+	
+	.logo{
+		max-width:165px; 
+		margin-top: -12px;
+	}
+	
+	.usuario{
+		max-width:40px; 
+		margin: 0 auto;
+		margin-top: -30px;
+	}
+	
+	.btnUsuario{
+		font-style:none;
+		color:black;
+	}
+	
+	.parte1 a{
+		text-decoration:none;
+		color:black;
+	}
+	
+	.parte1{
+		padding:20px;
+		padding-bottom:5px;
+		padding-top:5px;
+	}
+	
+	.preguntas, .respuestas{
+		border-bottom: 1px solid #B9B9B9;
+		border-radius:0px 0px 0px 20px;
+		margin-bottom:30px;
+		padding-right:10px;
+
+	}
+	
+	.respuestas{
+		padding-top:20px;
+	}
+
+	.tagsR{
+		padding-left:8px;
+	}
+	
+	.tagsP{
+		border:1px solid black;
+		border-radius:5px 5px 5px 5px;
+		padding: 2.5px;
+		margin-right:5px;
+	}
+	
+	.tagsP:hover{
+		background-color: black;
+		color: white;
+		-webkit-transition: background-color 400ms linear;
+		-moz-transition: background-color 400ms linear;
+		-o-transition: background-color 400ms linear;
+		-ms-transition: background-color 400ms linear;
+		transition: background-color 400ms linear;
+	}
+	
+	.parte2{
+		padding:20px;
+		padding-bottom:5px;
+		padding-top:5px;
+	}
+	
+	.tags{
+		border: 1px solid #B9B9B9;
+		max-width:220px;
+		min-width:200px;
+		border-radius:4px 4px 4px 4px;
+		margin-left: 5px;
+		margin-right: 40px;
+		margin-top:5px;
+		margin-bottom:25px;
+		display: block;
+	}
+	
+	.tags a{
+		color:black;
+	}
+	
+	.tags ul{
+		width:200px;
+		padding-left:0.15em;
+		padding-right:0.15em;
+		
+	}
+	
+	.tags li{
+		float:left;
+		display:inline;
+		width:50%;
+		padding:1em;
+		padding-bottom:0.5em;
+	}
+	
+	.textoP{
+		text-align : justify;
+		padding-left: 12px;
+	}
+	
+	.textoR{
+		text-align: justify;
+	}
+	
+	.autor{
+		text-align: right;
+	}
+	
+	.pregDes{
+		background-color:#EFEFEF;
+		border:1px solid #B9B9B9;
+	}
+	
+	.likes{
+		padding-left:15px;
+	}
+
+	.formRegistro, .formPregunta, .formRespuesta, .formModificarD, .formPreguntaM{
+		background-color:#EAEAEA;
+		border: 1px solid #B9B9B9;
+		border-radius:4px 4px 4px 4px;
+		padding: 20px;
+		padding-bottom: 0px;
+	}
+	
+	#formRegistro, #formPregunta, #formRespuesta, #formModificarD, #formPreguntaM{
+		position:absolute;
+		top:15%;
+		left:20%;
+		display:none;
+		width:45%;
+		margin: 0 auto;
+	}
+
+	.etiqForm{
+		width:80%;
+		margin: 0 auto;
+	}
+	.botonFP{
+		text-align:right;
+	}
+	
+	.listaDes{
+		margin-right: 38px;
+	}
+		
+	
+	@media (min-width: 992px){
+		.sidebar{
+			position:fixed;
+		}
+	}
+	
+	@media (max-width: 992px){
+		#formRegistro, #formPregunta, #formRespuesta, #formModificarD, #formPreguntaM{
+			position:absolute;
+			top:15%;
+			left:20%;
+			display:none;
+			width:60%;
+			margin: 0 auto;
+		}
+		.usuario{
+			max-width:0px; 
+		}
+	}
+	
+	@keyframes backgroundflash {    
+		75% { opacity:1.0}
+		100% {opacity:0.0; display:none}
+	}
+
+	.flash {
+		margin-left:5px;
+		color:red;
+		animation: backgroundflash 5s forwards; 
+	}
+	
+	.errorR{
+		margin-left:5px;
+		animation: backgroundflash 5s forwards; 
+	}
+	
+	
+	.btnMod{
+		border:none;
+		background-color:transparent;
+		padding:0;
+	}
+	
+	
