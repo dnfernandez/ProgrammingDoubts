@@ -16,9 +16,9 @@ $contadorError = $view->getVariable("contadorError");
             <div class="row">
                 <div class="col-md-12">
                     <h4 class=" textoP pregTitulo">
-                        <?php echo $pre["titulo"]; ?></h4>
+                        <?php echo htmlentities($pre["titulo"]); ?></h4>
                     <div class="textoP pregTexto">
-                        <?php echo htmlentities($pre["texto"]); ?>
+                        <?php echo nl2br(htmlentities($pre["texto"])); ?>
                     </div>
                 </div>
             </div>
@@ -39,7 +39,7 @@ $contadorError = $view->getVariable("contadorError");
                 </div>
                 <div class="col-md-4">
                     <div class="autor">
-                          <?= i18n("preguntado por")?> <?php echo $pre["autor"] . " ";
+                          <?= i18n("preguntado por")?> <?php echo htmlentities($pre["autor"]) . " ";
                         $date = new DateTime($pre["fecha"]);
                         echo $date->format('d-m-Y'); ?>
                     </div>
@@ -53,7 +53,7 @@ $contadorError = $view->getVariable("contadorError");
             <div class="row parte1">
                 <div class="col-md-12">
                     <div class="textoR" id="<?php echo $res["codRes"];?>">
-                        <?php echo htmlentities($res["texto"]); ?>
+                        <?php echo nl2br(htmlentities($res["texto"])); ?>
                     </div>
                 </div>
             </div>
@@ -76,7 +76,7 @@ $contadorError = $view->getVariable("contadorError");
                     </div>
                 </div>
                 <div class="col-md-4 autor">
-                      <?= i18n("respondido por")?> <?php echo $res["autor"] . " ";
+                      <?= i18n("respondido por")?> <?php echo htmlentities($res["autor"]) . " ";
                     $date = new DateTime($res["fecha"]);
                     echo $date->format('d-m-Y'); ?>
                 </div>

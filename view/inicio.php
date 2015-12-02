@@ -14,7 +14,7 @@ $codPreMod=0;
             <div class="row preguntas">
                 <div class="col-md-2">
                     <div class="row parte1">
-                        <?php echo $pregunta[6]; ?> <?= i18n("Respuestas")?>
+                        <?php echo htmlentities($pregunta[6]); ?> <?= i18n("Respuestas")?>
                     </div>
                     <div class="row parte1">
                         <?php $date = new DateTime($pregunta["fecha"]); echo $date->format('d-m-Y');?>
@@ -24,7 +24,7 @@ $codPreMod=0;
                     <div class="row parte1">
                         <?php
                             echo '<a href="index.php?controller=pregunta&amp;action=verPregunta&amp;codPre='.$pregunta['codPre'].'">';
-                            echo $pregunta["titulo"];
+                            echo htmlentities($pregunta["titulo"]);
                             echo'</a>';
                         ?>
                     </div>
@@ -63,8 +63,8 @@ $codPreMod=0;
         <form id="formPregM" class="form" action="index.php?controller=pregunta&amp;action=edicion" method="POST" name="formPregM" role="form">
             <div class="form-group" id="div-titM">
                 <label><?php echo $tradP = i18n("Introduzca el t&iacute;tulo de la pregunta"); ?></label><br>
-				<?php $tradP = i18n("El campo no puede estar vac\u00edo") ?>
-                <input type="text" class="form-control" name="titulo" id="comTitM" onblur="validateTitM('<?php echo $tradP ;?>')">
+				<?php $tradP2 = i18n("El campo no puede estar vac\u00edo") ?>
+                <input type="text" class="form-control" name="titulo" id="comTitM" onblur="validateTitM('<?php echo $tradP2 ;?>')">
             </div>
             <div class="form-group" id="div-textM">
                 <label><?php echo $tradP1 = i18n("Introduzca el texto de la pregunta"); ?></label><br>
@@ -94,7 +94,7 @@ $codPreMod=0;
             <div class="form-group botonFP">
                 <button type="reset" class="btn btn-default" onclick="hide_form5()"><?= i18n("Cancelar")?></button>
 				<?php $tradMP1 = i18n("Seleccione alguna etiqueta") ?>
-                <button type="button" class="btn btn-default" onclick="validateDatosPM('<?php echo $tradMP1 ;?>')"><?= i18n("Modificar")?></button>
+                <button type="button" class="btn btn-default" onclick="validateDatosPM('<?php echo $tradP2 ;?>','<?php echo $tradP1 ;?>','<?php echo $tradMP1 ;?>')"><?= i18n("Modificar")?></button>
             </div>
         </form>
     </div>

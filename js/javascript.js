@@ -77,14 +77,14 @@ function hide_form5() {
 	document.getElementById("cuerpoP").style.visibility="visible";
 }
 
-function validateDatos(){
-	if(validateName() &&validateName2() && validatePassword()) {
+function validateDatos(trad, trad1, trad2){
+	if(validateName(trad) &&validateName2(trad2) && validatePassword(trad2)) {
 		document.forms["registerform"].submit();
 	}
 }
 
-function validateDatos2(){
-	if(validateNameModif2() && validatePasswordModif()) {
+function validateDatos2(trad, trad1){
+	if(validateNameModif2(trad) && validatePasswordModif(trad1)) {
 		document.forms["modifform"].submit();
 	}
 }
@@ -202,28 +202,28 @@ function validatePasswordModif(traduccion) {
 	}
 }
 
-function validateDatosPM(traduccion){
+function validateDatosPM(trad,trad1,traduccion){
 	validateEtiqM();
 	
 	if(cont2<1){
 		$.notify(traduccion);
 	}
 	
-	if(validateTitM() && validateTextM() && cont2>=1) {
+	if(validateTitM(trad) && validateTextM(trad1) && cont2>=1) {
 		document.forms["formPregM"].submit();
 	}else{
 		cont2=0;
 	}
 }
 
-function validateDatosP(traduccion){
+function validateDatosP(trad1,traduccion){
 	validateEtiq();
 	
 	if(cont<1){
 		$.notify(traduccion);
 	}
 	
-	if(validateTit() && validateText() && cont>=1) {
+	if(validateTit(trad1) && validateText(trad1) && cont>=1) {
 		document.forms["formPreg"].submit();
 	}else{
 		cont=0;
@@ -317,8 +317,8 @@ function validateEtiqM(){
 	
 }
 
-function validateDatosR(){
-	if(validateText2() ) {
+function validateDatosR(trad){
+	if(validateText2(trad) ) {
 		document.forms["formRes"].submit();
 	}
 }

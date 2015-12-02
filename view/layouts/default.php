@@ -169,7 +169,7 @@ $etiqTot = $view->getVariable("etiqTot");
                 <div class="form-group botonFP">
                     <button type="reset" class="btn btn-default" onclick="hide_form1()"><?= i18n("Cancelar")?></button>
 					<?php $tradFCP1 = i18n("Seleccione alguna etiqueta") ?>
-                    <button type="button" class="btn btn-default" onclick="validateDatosP('<?php echo $tradFCP1 ;?>')"><?= i18n("Formular")?></button>
+                    <button type="button" class="btn btn-default" onclick="validateDatosP('<?php echo $tradFCP ;?>','<?php echo $tradFCP1 ;?>')"><?= i18n("Formular")?></button>
                 </div>
             </form>
         </div>
@@ -199,7 +199,7 @@ $etiqTot = $view->getVariable("etiqTot");
                 </div>
                 <div class="form-group botonFP">
                     <button type="reset" class="btn btn-default" onclick="hide_form2()"><?= i18n("Cancelar")?></button>
-                    <button type="button" class="btn btn-default" onclick="validateDatos()"><?= i18n("Registrarse")?></button>
+                    <button type="button" class="btn btn-default" onclick="validateDatos('<?php echo $trad;?>','<?php echo $tradFR1;?>','<?php echo $tradFR2;?>')"><?= i18n("Registrarse")?></button>
                 </div>
             </form>
         </div>
@@ -230,7 +230,7 @@ $etiqTot = $view->getVariable("etiqTot");
                 </div>
                 <div class="form-group botonFP">
                     <button type="reset" class="btn btn-default" onclick="hide_form3()"><?= i18n("Cancelar")?></button>
-                    <button type="button" class="btn btn-default" onclick="validateDatos2()"><?= i18n("Modificar datos")?></button>
+                    <button type="button" class="btn btn-default" onclick="validateDatos2('<?php echo $tradFM ;?>','<?php echo $tradFM1 ;?>')"><?= i18n("Modificar datos")?></button>
                 </div>
             </form>
         </div>
@@ -247,7 +247,7 @@ $etiqTot = $view->getVariable("etiqTot");
                 </div>
                 <div class="form-group botonFP">
                     <button type="reset" class="btn btn-default" onclick="hide_form4()"><?= i18n("Cancelar")?></button>
-                    <button type="button" class="btn btn-default" onclick="validateDatosR()"><?= i18n("Responder")?></button>
+                    <button type="button" class="btn btn-default" onclick="validateDatosR('<?php echo $tradFC ;?>')"><?= i18n("Responder")?></button>
                 </div>
             </form>
         </div>
