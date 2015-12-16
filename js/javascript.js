@@ -78,12 +78,25 @@ function hide_form5() {
 }
 
 function validateDatos(trad, trad1, trad2){
-	if(validateName(trad) &&validateName2(trad2) && validatePassword(trad2)) {
+	var password = document.getElementById("register-password").value;
+	var pass2 = document.getElementById("register-repeatPassword").value
+
+	if(password.length == 0 || pass2.length == 0){
+		$.notify(trad2, "error");
+	}
+	if(validateName(trad) && validateName2(trad1) && validatePassword(trad2)) {
 		document.forms["registerform"].submit();
 	}
 }
 
 function validateDatos2(trad, trad1){
+
+	var password = document.getElementById("register-passwordM").value;
+	var pass2 = document.getElementById("register-repeatPasswordM").value
+
+	if(password.length == 0 || pass2.length == 0){
+		$.notify(trad1, "error");
+	}
 	if(validateNameModif2(trad) && validatePasswordModif(trad1)) {
 		document.forms["modifform"].submit();
 	}
@@ -127,7 +140,7 @@ function validateName2(traduccion) {
 	}
 }
 
-function validatePassword() {
+function validatePassword(traduccion) {
 	//var cont = /(?!^[0-9]*$)(?!^[a-zA-Z]*$)^([a-zA-Z0-9]{6,15})$/;
 	var cont = /(?=.*\d)(?=.*[a-z]){6,15}/;
 	var password = document.getElementById("register-password").value;
