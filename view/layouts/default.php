@@ -136,7 +136,7 @@ $etiqTot = $view->getVariable("etiqTot");
             </div>
         </div>
     </div>
-    <!--Formulario para crear pregunta--> <!--Falta por traducir en la parte javascript los validate-->  
+    <!--Formulario para crear pregunta-->
     <div id="formPregunta">
         <div class="formPregunta">
             <form id="formPreg" class="form" action="index.php?controller=pregunta&amp;action=crear" method="POST" name="formPreg" role="form">

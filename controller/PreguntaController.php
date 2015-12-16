@@ -3,6 +3,7 @@
 require_once(__DIR__ . "/../model/Pregunta.php");
 require_once(__DIR__ . "/../model/PreguntaMapper.php");
 require_once(__DIR__ . "/../model/Respuesta.php");
+require_once(__DIR__ . "/../model/RespuestaMapper.php");
 require_once(__DIR__ . "/../model/Usuario.php");
 
 require_once(__DIR__ . "/../core/ViewManager.php");
@@ -12,12 +13,14 @@ class PreguntaController extends BaseController
 {
 
     private $preguntaMapper;
+    private $respuestaMapper;
 
     public function __construct()
     {
         parent::__construct();
 
         $this->preguntaMapper = new PreguntaMapper();
+        $this->respuestaMapper = new RespuestaMapper();
     }
 
     /**
@@ -95,6 +98,7 @@ class PreguntaController extends BaseController
 
         $pregunta = $this->preguntaMapper->listarPreguntaCod($codPregunta);
         $preguntaRes = $this->preguntaMapper->listarComentarios($codPregunta);
+        $comentariosRespuestas = $this->respuestaMapper->obtenerComentarioRespuestas($codPregunta);
 
         if ($pregunta == NULL) {
             throw new Exception("No existe pregunta con codPre " . $codPregunta . header("Location: index.php"));
@@ -111,6 +115,7 @@ class PreguntaController extends BaseController
         //Mandamos la pregunta y sus respuestas
         $this->view->setVariable("pregunta", $pregunta);
         $this->view->setVariable("preguntaRes", $preguntaRes);
+        $this->view->setVariable("comentariosRespuestas", $comentariosRespuestas);
 
         //Creamos la vista
         $this->view->render("respuestas");

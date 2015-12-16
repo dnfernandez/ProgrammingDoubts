@@ -7,6 +7,7 @@ function show_form1() {
 	document.getElementById("formRegistro").style.display="none";
 	document.getElementById("formModificarD").style.display="none";
 	document.getElementById("formPreguntaM").style.display="none";
+	document.getElementById("formRespuestaR").style.display="none";
 
 }
 function show_form2() {
@@ -17,6 +18,9 @@ function show_form2() {
 	}
 	if(document.getElementById("formRespuesta")){
 		document.getElementById("formRespuesta").style.display="none";
+	}
+	if(document.getElementById("formRespuestaR")) {
+		document.getElementById("formRespuestaR").style.display = "none";
 	}
 	document.getElementById("formPreguntaM").style.display="none";
 }
@@ -30,6 +34,9 @@ function show_form3() {
 	if(document.getElementById("formRespuesta")){
 		document.getElementById("formRespuesta").style.display="none";
 	}
+	if(document.getElementById("formRespuestaR")) {
+		document.getElementById("formRespuestaR").style.display = "none";
+	}
 	document.getElementById("formPreguntaM").style.display="none";
 }
 
@@ -39,6 +46,8 @@ function show_form4() {
 	document.getElementById("formRegistro").style.display="none";
 	document.getElementById("formModificarD").style.display="none";
 	document.getElementById("formPreguntaM").style.display="none";
+	document.getElementById("formRespuestaR").style.display = "none";
+
 }
 
 function show_form5(codPre) {
@@ -48,7 +57,18 @@ function show_form5(codPre) {
 	document.getElementById("formRegistro").style.display="none";
 	document.getElementById("formModificarD").style.display="none";
 	document.getElementById("formPregunta").style.display="none";
+	document.getElementById("formRespuestaR").style.display="none";
 
+}
+
+function show_form6(codRes) {
+	document.getElementById("formRespuestaR").style.display="block";
+	document.getElementById("formComR").innerHTML = "<input type='hidden' name='codRes' value='"+codRes+"' >";
+	document.getElementById("cuerpoP").style.visibility="hidden";
+	document.getElementById("formRespuesta").style.display="none";
+	document.getElementById("formRegistro").style.display="none";
+	document.getElementById("formModificarD").style.display="none";
+	document.getElementById("formPreguntaM").style.display="none";
 }
 
 function hide_form1() {
@@ -70,10 +90,16 @@ function hide_form3() {
 function hide_form4() {
 	document.getElementById("formRespuesta").style.display="none";
 	document.getElementById("cuerpoP").style.visibility="visible";
+	document.getElementById("formRespuestaR").style.display = "none";
 }
 
 function hide_form5() {
 	document.getElementById("formPreguntaM").style.display="none";
+	document.getElementById("cuerpoP").style.visibility="visible";
+}
+
+function hide_form6() {
+	document.getElementById("formRespuestaR").style.display="none";
 	document.getElementById("cuerpoP").style.visibility="visible";
 }
 
@@ -110,13 +136,13 @@ function validateName(traduccion) {
 		$("#div-name").removeClass("has-success");
 		$("#div-name").addClass("has-error");
 		$.notify(traduccion, "error");
-		
+
 		return false;
 	}
 	else {
 		$("#div-name").removeClass("has-error");
 		$("#div-name").addClass("has-success");
-		
+
 		return true;
 	}
 }
@@ -129,13 +155,13 @@ function validateName2(traduccion) {
 		$("#div-name2").removeClass("has-success");
 		$("#div-name2").addClass("has-error");
 		$.notify(traduccion, "error");
-		
+
 		return false;
 	}
 	else {
 		$("#div-name2").removeClass("has-error");
 		$("#div-name2").addClass("has-success");
-		
+
 		return true;
 	}
 }
@@ -145,9 +171,9 @@ function validatePassword(traduccion) {
 	var cont = /(?=.*\d)(?=.*[a-z]){6,15}/;
 	var password = document.getElementById("register-password").value;
 	var pass2 = document.getElementById("register-repeatPassword").value
-	
+
 	if(password.length == 0 || pass2.length == 0) return false;
-	
+
 	if ((cont.test(password) == 0) || (password.length < 6) || (password.length > 15) || (password != pass2)) {
 
 		$("#div-password").removeClass("has-success");
@@ -162,8 +188,8 @@ function validatePassword(traduccion) {
 		$("#div-password").addClass("has-success");
 		$("#div-repeatPassword").removeClass("has-error");
 		$("#div-repeatPassword").addClass("has-success");
-		
-					
+
+
 		return true;
 	}
 }
@@ -176,13 +202,13 @@ function validateNameModif2(traduccion) {
 		$("#div-name2M").removeClass("has-success");
 		$("#div-name2M").addClass("has-error");
 		$.notify(traduccion, "error");
-		
+
 		return false;
 	}
 	else {
 		$("#div-name2M").removeClass("has-error");
 		$("#div-name2M").addClass("has-success");
-		
+
 		return true;
 	}
 }
@@ -192,9 +218,9 @@ function validatePasswordModif(traduccion) {
 	var cont = /(?=.*\d)(?=.*[a-z]){6,15}/;
 	var password = document.getElementById("register-passwordM").value;
 	var pass2 = document.getElementById("register-repeatPasswordM").value
-	
+
 	if(password.length == 0 || pass2.length == 0) return false;
-	
+
 	if ((cont.test(password) == 0) || (password.length < 6) || (password.length > 15) || (password != pass2)) {
 
 		$("#div-passwordM").removeClass("has-success");
@@ -209,19 +235,19 @@ function validatePasswordModif(traduccion) {
 		$("#div-passwordM").addClass("has-success");
 		$("#div-repeatPasswordM").removeClass("has-error");
 		$("#div-repeatPasswordM").addClass("has-success");
-		
-					
+
+
 		return true;
 	}
 }
 
 function validateDatosPM(trad,trad1,traduccion){
 	validateEtiqM();
-	
+
 	if(cont2<1){
 		$.notify(traduccion);
 	}
-	
+
 	if(validateTitM(trad) && validateTextM(trad1) && cont2>=1) {
 		document.forms["formPregM"].submit();
 	}else{
@@ -231,11 +257,11 @@ function validateDatosPM(trad,trad1,traduccion){
 
 function validateDatosP(trad1,traduccion){
 	validateEtiq();
-	
+
 	if(cont<1){
 		$.notify(traduccion);
 	}
-	
+
 	if(validateTit(trad1) && validateText(trad1) && cont>=1) {
 		document.forms["formPreg"].submit();
 	}else{
@@ -248,13 +274,13 @@ function  validateTit(traduccion){
 	if( valor == null || valor.length == 0 || /^\s+$/.test(valor) ) {
 		$("#div-tit").removeClass("has-success");
 		$("#div-tit").addClass("has-error");
-		$.notify(traduccion, "error");  
-	  return false;
+		$.notify(traduccion, "error");
+		return false;
 	}
 	else {
 		$("#div-tit").removeClass("has-error");
 		$("#div-tit").addClass("has-success");
-		
+
 		return true;
 	}
 }
@@ -265,13 +291,13 @@ function  validateTitM(traduccion){
 	if( valor == null || valor.length == 0 || /^\s+$/.test(valor) ) {
 		$("#div-titM").removeClass("has-success");
 		$("#div-titM").addClass("has-error");
-		$.notify(traduccion, "error");  
-	  return false;
+		$.notify(traduccion, "error");
+		return false;
 	}
 	else {
 		$("#div-titM").removeClass("has-error");
 		$("#div-titM").addClass("has-success");
-		
+
 		return true;
 	}
 }
@@ -281,13 +307,13 @@ function  validateText(traduccion){
 	if( valor == null || valor.length == 0 || /^\s+$/.test(valor) ) {
 		$("#div-text").removeClass("has-success");
 		$("#div-text").addClass("has-error");
-		$.notify(traduccion, "error");  
-	  return false;
+		$.notify(traduccion, "error");
+		return false;
 	}
 	else {
 		$("#div-text").removeClass("has-error");
 		$("#div-text").addClass("has-success");
-		
+
 		return true;
 	}
 }
@@ -297,13 +323,13 @@ function  validateTextM(traduccion){
 	if( valor == null || valor.length == 0 || /^\s+$/.test(valor) ) {
 		$("#div-textM").removeClass("has-success");
 		$("#div-textM").addClass("has-error");
-		$.notify(traduccion, "error");  
-	  return false;
+		$.notify(traduccion, "error");
+		return false;
 	}
 	else {
 		$("#div-textM").removeClass("has-error");
 		$("#div-textM").addClass("has-success");
-		
+
 		return true;
 	}
 }
@@ -316,7 +342,7 @@ function validateEtiq(){
 			}
 		}
 	}
-	
+
 }
 
 function validateEtiqM(){
@@ -327,7 +353,7 @@ function validateEtiqM(){
 			}
 		}
 	}
-	
+
 }
 
 function validateDatosR(trad){
@@ -336,19 +362,40 @@ function validateDatosR(trad){
 	}
 }
 
+function validateDatosRR(trad){
+	if(validateText2R(trad) ) {
+		document.forms["formResR"].submit();
+	}
+}
 
 function  validateText2(traduccion){
 	valor = document.getElementById("comText2").value;
 	if( valor == null || valor.length == 0 || /^\s+$/.test(valor) ) {
 		$("#div-text2").removeClass("has-success");
 		$("#div-text2").addClass("has-error");
-		$.notify(traduccion, "error");  
-	  return false;
+		$.notify(traduccion, "error");
+		return false;
 	}
 	else {
 		$("#div-text2").removeClass("has-error");
 		$("#div-text2").addClass("has-success");
-		
+
+		return true;
+	}
+}
+
+function  validateText2R(traduccion){
+	valor = document.getElementById("comText2R").value;
+	if( valor == null || valor.length == 0 || /^\s+$/.test(valor) ) {
+		$("#div-text2R").removeClass("has-success");
+		$("#div-text2R").addClass("has-error");
+		$.notify(traduccion, "error");
+		return false;
+	}
+	else {
+		$("#div-text2R").removeClass("has-error");
+		$("#div-text2R").addClass("has-success");
+
 		return true;
 	}
 }

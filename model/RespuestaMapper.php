@@ -109,5 +109,24 @@ class RespuestaMapper
         $stmt->execute(array($sum, $codPre, $codRes));
 
     }
+
+    /**
+     * Metodo para insertar un comentario a una respuesta
+     */
+
+    public function insertarComentarioRespuesta($codPre, $codRes, $autor, $comentario){
+        $stmt = $this->db->prepare("insert into comentario_respuesta(respuesta_codPre, respuesta_codRes, texto, autor) values (?,?,?,?)");
+        $stmt->execute(array($codPre, $codRes, $comentario, $autor));
+    }
+
+    /**
+     * Listar comentarios de todas las respuestas de una pregunta
+     */
+
+    public function obtenerComentarioRespuestas($codPre){
+        $stmt = $this->db->prepare("select * from comentario_respuesta where respuesta_codPre=? order by codResR asc");
+        $stmt->execute(array($codPre));
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 }
 

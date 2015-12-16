@@ -70,6 +70,40 @@ class RespuestaController extends BaseController
         }
     }
 
+    /**
+     * Accion de crear un comentario a una respuesta de una pregunta
+     */
+
+    public function crearComentario()
+    {
+        if (!isset($this->currentUser)) {
+            throw new Exception("Se requiere login para responder");
+        } else {
+
+            if (isset($_POST["codPre"]) && isset($_POST["codRes"])) {
+                $codPregunta=$_POST["codPre"];
+                $codRespuesta=$_POST["codRes"];
+                $autor=$_POST["autor"];
+                $texto=$_POST["texto"];
+
+                try{
+                    if(!$this->preguntaMapper->existePregunta($codPregunta) || !$this->respuestaMapper->existeRespuesta($codPregunta, $codRespuesta) || !isset($autor) || !isset($texto)){
+                        throw new Exception("Faltan datos");
+                    }
+                    $this->respuestaMapper->insertarComentarioRespuesta($codPregunta, $codRespuesta,$autor, $texto);
+                    $this->view->redirect("pregunta", "verPregunta","codPre=".$codPregunta."#".($codRespuesta-1));
+                }catch (ValidationException $ex){
+                    $errors = $ex->getErrors();
+                    $this->view->setVariable("errors", $errors, true);
+                    $this->view->redirect("pregunta", "verPregunta","codPre=".$codPregunta."#".($codRespuesta-1));
+                }
+            }
+            else {
+                throw new Exception("No existe el codPre o codRes");
+            }
+        }
+    }
+
     public function votar(){
         if (!isset($this->currentUser)) {
             $this->view->setFlash(i18n("Se requiere login para votar"));  
